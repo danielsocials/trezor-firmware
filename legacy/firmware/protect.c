@@ -332,7 +332,7 @@ bool protectChangeBixinPin(bool removal) {
   if (config_hasPin()) {
     g_ucPromptIndex = DISP_INPUTPIN;
     pin, pin1 = requestPin(PinMatrixRequestType_PinMatrixRequestType_Current,
-                     _("Please enter current PIN:"));
+                     _("Please enter PIN:"));
     if (pin == NULL) {
       fsm_sendFailure(FailureType_Failure_PinCancelled, NULL);
       return false;
