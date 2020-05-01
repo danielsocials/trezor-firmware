@@ -79,6 +79,7 @@ bool get_features(Features *resp) {
   resp->capabilities[6] = Capability_Capability_Stellar;
   resp->capabilities[7] = Capability_Capability_U2F;
 #endif
+  // todo add xpub/ add ble info
   return resp;
 }
 
@@ -222,7 +223,7 @@ void fsm_msgChangeWipeCode(const ChangeWipeCode *msg) {
 
 void fsm_msgWipeDevice(const WipeDevice *msg) {
   if (g_bIsBixinAPP) 
-      CHECK_PIN
+      CHECK_PIN_UNCACHED
   (void)msg;
   layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("Confirm"), NULL,
                     _("Do you really want to"), _("wipe the device?"), NULL,

@@ -145,7 +145,13 @@ const char *requestPin(PinMatrixRequestType type, const char *text) {
       PinMatrixAck *pma = (PinMatrixAck *)msg_tiny;
       usbTiny(0);
       if (sectrue == pinmatrix_done(pma->pin))  // convert via pinmatrix
-        return pma->pin;
+          {
+           if (g_bIsBixinAPP)  {
+             if (sectrue == pinmatrix_done(pma->newpin))
+                return pma->pin;
+           }
+           return pma->pin;
+          }
       else
         return 0;
     }
@@ -301,6 +307,63 @@ bool protectChangePin(bool removal) {
             fsm_sendFailure(FailureType_Failure_PinMismatch, NULL);
             return false;
         }
+    }
+  }
+
+  bool ret = config_changePin(old_pin, new_pin);
+  memzero(old_pin, sizeof(old_pin));
+  memzero(new_pin, sizeof(new_pin));
+  if (ret == false) {
+    if (removal) {
+      fsm_sendFailure(FailureType_Failure_PinInvalid, NULL);
+    } else {
+      fsm_sendFailure(FailureType_Failure_ProcessError,
+                      _("The new PIN must be different from your wipe code."));
+    }
+  }
+  return ret;
+}
+
+bool protectChangeBixinPin(bool removal) {
+  static CONFIDENTIAL char old_pin[MAX_PIN_LEN + 1] = "";
+  static CONFIDENTIAL char new_pin[MAX_PIN_LEN + 1] = "";
+  const char *pin = NULL;
+
+  if (config_hasPin()) {
+    g_ucPromptIndex = DISP_INPUTPIN;
+    pin, pin1 = requestPin(PinMatrixRequestType_PinMatrixRequestType_Current,
+                     _("Please enter current PIN:"));
+    if (pin == NULL) {
+      fsm_sendFailure(FailureType_Failure_PinCancelled, NULL);
+      return false;
+    }
+    if (pin1 == NULL || pin1[0] == '\0') {
+      memzero(old_pin, sizeof(old_pin));
+      fsm_sendFailure(FailureType_Failure_PinCancelled, NULL);
+      return false;
+    }
+    // If removing, defer the check to config_changePin().
+    if (!removal) {
+      usbTiny(1);
+      bool ret = config_unlock(pin);
+      usbTiny(0);
+      if (ret == false) {
+        fsm_sendFailure(FailureType_Failure_PinInvalid, NULL);
+        return false;
+      }
+    }
+
+    strlcpy(old_pin, pin, sizeof(old_pin));
+    strlcpy(new_pin, pin1, sizeof(new_pin));
+
+    g_ucPromptIndex = DISP_CONFIRM_PIN;
+    layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("Confirm"), NULL,
+                      _("Please confirm PIN"), NULL, NULL, new_pin, NULL, NULL);
+
+    if (!protectButton(ButtonRequestType_ButtonRequest_ProtectCall, false)) {
+        fsm_sendFailure(FailureType_Failure_ActionCancelled, NULL);
+        layoutHome();
+        return false;
     }
   }
 
