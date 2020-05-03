@@ -278,8 +278,9 @@ int compile_output(const CoinInfo *coin, const HDNode *root, TxOutputType *in,
     out->script_pubkey.size = 25;
   } else
       // p2sh
-      if (addr_raw_len == 20 + (prefix_len = address_prefix_bytes_len(
-                                    coin->address_type_p2sh)) &&
+      if (addr_raw_len ==
+              20 + (prefix_len =
+                        address_prefix_bytes_len(coin->address_type_p2sh)) &&
           address_check_prefix(addr_raw, coin->address_type_p2sh)) {
     out->script_pubkey.bytes[0] = 0xA9;  // OP_HASH_160
     out->script_pubkey.bytes[1] = 0x14;  // pushing 20 bytes
@@ -433,7 +434,7 @@ uint32_t serialize_script_multisig(const CoinInfo *coin,
   uint32_t r = 0;
 #if !BITCOIN_ONLY
   if (!coin->decred) {
-    // Decred fixed the off-by-one bug
+// Decred fixed the off-by-one bug
 #endif
     out[r] = 0x00;
     r++;
@@ -852,7 +853,7 @@ uint32_t tx_input_weight(const CoinInfo *coin, const TxInputType *txinput) {
     return 4 * (TXSIZE_INPUT + 1);  // Decred tree
   }
 #else
-  (void)coin;
+    (void)coin;
 #endif
 
   uint32_t input_script_size = tx_input_script_size(txinput);

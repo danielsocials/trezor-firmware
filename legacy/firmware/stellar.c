@@ -1474,7 +1474,7 @@ const HDNode *stellar_deriveNode(const uint32_t *address_n,
 }
 
 void stellar_hashupdate_uint32(uint32_t value) {
-  // Ensure uint32 is big endian
+// Ensure uint32 is big endian
 #if BYTE_ORDER == LITTLE_ENDIAN
   REVERSE32(value, value);
 #endif
@@ -1490,7 +1490,7 @@ void stellar_hashupdate_uint32(uint32_t value) {
 }
 
 void stellar_hashupdate_uint64(uint64_t value) {
-  // Ensure uint64 is big endian
+// Ensure uint64 is big endian
 #if BYTE_ORDER == LITTLE_ENDIAN
   REVERSE64(value, value);
 #endif

@@ -54,8 +54,7 @@ static const struct usb_interface_descriptor iface[] = {{
 }};
 
 static const struct usb_interface ifaces[] = {{
-    .num_altsetting = 1,
-    .altsetting = iface,
+    .num_altsetting = 1, .altsetting = iface,
 }};
 
 static const struct usb_config_descriptor config = {
@@ -71,7 +70,5 @@ static const struct usb_config_descriptor config = {
 };
 
 static const char *usb_strings[] = {
-    "SatoshiLabs",
-    "TREZOR",
-    "000000000000000000000000",
+    "SatoshiLabs", "TREZOR", "000000000000000000000000",
 };

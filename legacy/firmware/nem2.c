@@ -183,8 +183,9 @@ const char *nem_validate_aggregate_modification(
     if (modification->public_key.size != 32)
       return _("Invalid cosignatory public key provided");
 
-    if (creation && modification->type ==
-                        NEMModificationType_CosignatoryModification_Delete) {
+    if (creation &&
+        modification->type ==
+            NEMModificationType_CosignatoryModification_Delete) {
       return _("Cannot remove cosignatory when converting account");
     }
   }

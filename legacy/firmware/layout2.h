@@ -47,9 +47,8 @@ extern void *layoutLast;
 #define DISP_NFC_LINK 0x03       // Connect by NFC
 #define DISP_USB_LINK 0x04       // Connect by USB
 #define DISP_COMPUTER_LINK 0x05  // Connect to a computer
-#define DISP_INPUTPIN \
-  0x06  // Enter PIN code according to the prompts on the
-        // right screen
+#define DISP_INPUTPIN 0x06  // Enter PIN code according to the prompts on the
+                            // right screen
 #define DISP_BUTTON_OK_RO_NO 0x07     // Press OK to confirm, Press < to Cancel
 #define DISP_GEN_PRI_KEY 0x08         // Generating private key...
 #define DISP_ACTIVE_SUCCESS 0x09      // Activated
@@ -60,13 +59,11 @@ extern void *layoutLast;
 #define DISP_BOTTON_OK_SIGN 0x0E      // Press OK to sign
 #define DISP_SIGN_SUCCESS 0x0F        // Signed! Touch it to the phone closely
 #define DISP_SIGN_PRESS_OK_HOME 0x10  // Signed! Press OK to return to homepage
-#define DISP_SIGN_SUCCESS_VIEW \
-  0x11                               // Signed! Please view
-                                     // transaction on your
-                                     // phone
-#define DISP_UPDATGE_APP_GOING 0x12  // Upgrading, do not turn off
-#define DISP_UPDATGE_SUCCESS \
-  0x13                               // Firmware upgraded, press OK to return to
+#define DISP_SIGN_SUCCESS_VIEW 0x11   // Signed! Please view
+                                      // transaction on your
+                                      // phone
+#define DISP_UPDATGE_APP_GOING 0x12   // Upgrading, do not turn off
+#define DISP_UPDATGE_SUCCESS 0x13    // Firmware upgraded, press OK to return to
                                      // homepage
 #define DISP_PRESSKEY_POWEROFF 0x14  // power off
 #define DISP_BLE_NAME 0x15           // ble name

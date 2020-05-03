@@ -260,13 +260,11 @@ static secbool config_upgrade_v10(void) {
   Storage config __attribute__((aligned(4)));
   _Static_assert((sizeof(config) & 3) == 0, "storage unaligned");
 
-  memcpy(
-      config_uuid,
-      FLASH_PTR(FLASH_META_START + FLASH_META_LEN + sizeof(CONFIG_MAGIC_V10)),
-      sizeof(config_uuid));
-  memcpy(&config,
-         FLASH_PTR(FLASH_META_START + FLASH_META_LEN +
-                   sizeof(CONFIG_MAGIC_V10) + sizeof(config_uuid)),
+  memcpy(config_uuid, FLASH_PTR(FLASH_META_START + FLASH_META_LEN +
+                                sizeof(CONFIG_MAGIC_V10)),
+         sizeof(config_uuid));
+  memcpy(&config, FLASH_PTR(FLASH_META_START + FLASH_META_LEN +
+                            sizeof(CONFIG_MAGIC_V10) + sizeof(config_uuid)),
          sizeof(config));
 
   // version 1: since 1.0.0

@@ -259,19 +259,16 @@ static const struct usb_interface_descriptor webusb_iface_main[] = {{
 // in correct order
 static const struct usb_interface ifaces[] = {
     {
-        .num_altsetting = 1,
-        .altsetting = webusb_iface_main,
+        .num_altsetting = 1, .altsetting = webusb_iface_main,
 #if DEBUG_LINK
     },
     {
-        .num_altsetting = 1,
-        .altsetting = webusb_iface_debug,
+        .num_altsetting = 1, .altsetting = webusb_iface_debug,
 #endif
 #if U2F_ENABLED
     },
     {
-        .num_altsetting = 1,
-        .altsetting = hid_iface_u2f,
+        .num_altsetting = 1, .altsetting = hid_iface_u2f,
 #endif
     }};
 

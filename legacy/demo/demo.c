@@ -191,8 +191,7 @@ static const struct usb_interface_descriptor hid_iface[] = {{
 }};
 
 static const struct usb_interface ifaces[] = {{
-    .num_altsetting = 1,
-    .altsetting = hid_iface,
+    .num_altsetting = 1, .altsetting = hid_iface,
 }};
 
 static const struct usb_config_descriptor config = {
@@ -208,9 +207,7 @@ static const struct usb_config_descriptor config = {
 };
 
 static const char *usb_strings[] = {
-    "SatoshiLabs",
-    "TREZOR",
-    "01234567",
+    "SatoshiLabs", "TREZOR", "01234567",
 };
 
 static enum usbd_request_return_codes hid_control_request(

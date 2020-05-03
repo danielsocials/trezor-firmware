@@ -725,8 +725,9 @@ int ethereum_message_verify(const EthereumVerifyMessage *msg) {
   if (v >= 27) {
     v -= 27;
   }
-  if (v >= 2 || ecdsa_recover_pub_from_sig(
-                    &secp256k1, pubkey, msg->signature.bytes, hash, v) != 0) {
+  if (v >= 2 ||
+      ecdsa_recover_pub_from_sig(&secp256k1, pubkey, msg->signature.bytes, hash,
+                                 v) != 0) {
     return 2;
   }
 

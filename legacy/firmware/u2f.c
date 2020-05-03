@@ -335,7 +335,7 @@ uint8_t *u2f_out_data(void) {
 }
 
 void u2fhid_msg(const APDU *a, uint32_t len) {
-#if 0
+#if 1
   if ((APDU_LEN(*a) + sizeof(APDU)) > len) {
     debugLog(0, "", "BAD APDU LENGTH");
     debugInt(APDU_LEN(*a));
