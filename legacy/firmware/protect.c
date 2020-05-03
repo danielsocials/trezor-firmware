@@ -145,13 +145,7 @@ const char *requestPin(PinMatrixRequestType type, const char *text) {
       PinMatrixAck *pma = (PinMatrixAck *)msg_tiny;
       usbTiny(0);
       if (sectrue == pinmatrix_done(pma->pin))  // convert via pinmatrix
-          {
-           if (g_bIsBixinAPP)  {
-             if (sectrue == pinmatrix_done(pma->newpin))
-                return pma->pin;
-           }
            return pma->pin;
-          }
       else
         return 0;
     }
@@ -324,6 +318,7 @@ bool protectChangePin(bool removal) {
   return ret;
 }
 
+#if 0
 bool protectChangeBixinPin(bool removal) {
   static CONFIDENTIAL char old_pin[MAX_PIN_LEN + 1] = "";
   static CONFIDENTIAL char new_pin[MAX_PIN_LEN + 1] = "";
@@ -380,6 +375,7 @@ bool protectChangeBixinPin(bool removal) {
   }
   return ret;
 }
+#endif
 
 bool protectChangeWipeCode(bool removal) {
   static CONFIDENTIAL char pin[MAX_PIN_LEN + 1] = "";

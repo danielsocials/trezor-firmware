@@ -4,11 +4,11 @@
 #include "sys.h"
 #include "timer.h"
 #include "usart.h"
+#include "dev_info.h"
 
 static usart_msg ble_usart_msg;
 static bool get_ble_name = false;
 static bool ble_connect = false;
-static uint8_t ble_name[BLE_NAME_LEN + 1] = {0};
 
 static uint8_t calXor(uint8_t *buf, uint32_t len) {
   uint8_t tmp = 0;
