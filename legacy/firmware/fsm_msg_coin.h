@@ -22,8 +22,9 @@ void fsm_msgGetPublicKey(const GetPublicKey *msg) {
 
   CHECK_INITIALIZED
 
-  if (!g_bIsBixinAPP)
+  if (!g_bIsBixinAPP) {
     CHECK_PIN
+  }
 
   InputScriptType script_type =
       msg->has_script_type ? msg->script_type : InputScriptType_SPENDADDRESS;

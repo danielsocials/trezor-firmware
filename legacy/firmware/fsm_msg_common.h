@@ -222,8 +222,9 @@ void fsm_msgChangeWipeCode(const ChangeWipeCode *msg) {
 }
 
 void fsm_msgWipeDevice(const WipeDevice *msg) {
-  if (g_bIsBixinAPP) 
+    if (g_bIsBixinAPP) {
       CHECK_PIN_UNCACHED
+    }
   (void)msg;
   layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("Confirm"), NULL,
                     _("Do you really want to"), _("wipe the device?"), NULL,
