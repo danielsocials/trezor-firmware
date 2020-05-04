@@ -43,7 +43,7 @@ static bool no_backup = false;
 void reset_init(bool display_random, uint32_t _strength,
                 bool passphrase_protection, bool pin_protection,
                 const char *language, const char *label, uint32_t u2f_counter,
-                bool _skip_backup, bool _no_backup) {
+                bool _skip_backup, bool _no_backup, bool _bixinapp) {
   if (_strength != 128 && _strength != 192 && _strength != 256) return;
 
   strength = _strength;
@@ -57,7 +57,7 @@ void reset_init(bool display_random, uint32_t _strength,
     return;
   }
 
-  if (!g_bIsBixinAPP) {
+  if (!_bixinapp) {
       layoutDialogSwipe(&bmp_icon_question, _("Cancel"), _("Confirm"), NULL,
                         _("Do you really want to"), _("create a new wallet?"),
                         _("By continuing you"), _("agree to trezor.io/tos"), NULL,
@@ -113,6 +113,7 @@ void reset_init(bool display_random, uint32_t _strength,
   config_setLanguage(language);
   config_setLabel(label);
   config_setU2FCounter(u2f_counter);
+  config_setIsBixinAPP();
 
   EntropyRequest resp = {0};
   memzero(&resp, sizeof(EntropyRequest));

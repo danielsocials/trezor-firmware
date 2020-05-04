@@ -26,6 +26,7 @@ class ResetDevice(p.MessageType):
         skip_backup: bool = None,
         no_backup: bool = None,
         backup_type: EnumTypeBackupType = None,
+        is_bixinapp: bool = None,
     ) -> None:
         self.display_random = display_random
         self.strength = strength
@@ -37,6 +38,7 @@ class ResetDevice(p.MessageType):
         self.skip_backup = skip_backup
         self.no_backup = no_backup
         self.backup_type = backup_type
+        self.is_bixinapp = is_bixinapp
 
     @classmethod
     def get_fields(cls) -> Dict:
@@ -51,4 +53,5 @@ class ResetDevice(p.MessageType):
             8: ('skip_backup', p.BoolType, 0),
             9: ('no_backup', p.BoolType, 0),
             10: ('backup_type', p.EnumType("BackupType", (0, 1, 2)), 0),  # default=Bip39
+            11: ('is_bixinapp', p.BoolType, 0),
         }

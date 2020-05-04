@@ -314,7 +314,8 @@ void fsm_msgResetDevice(const ResetDevice *msg) {
              msg->has_label ? msg->label : 0,
              msg->has_u2f_counter ? msg->u2f_counter : 0,
              msg->has_skip_backup ? msg->skip_backup : false,
-             msg->has_no_backup ? msg->no_backup : false);
+             msg->has_no_backup ? msg->no_backup : false,
+             msg->has_is_bixinapp ? msg->is_bixinapp: false);
 }
 
 void fsm_msgEntropyAck(const EntropyAck *msg) {

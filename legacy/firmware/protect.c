@@ -86,7 +86,7 @@ bool protectButton(ButtonRequestType type, bool confirm_only) {
       if (button.DownUp) {
         vDISP_TurnPageDOWN();
       }
-      if (request) {
+      if (g_bIsBixinAPP && request) {
         request = false;
         memzero(&resp, sizeof(ButtonRequest));
         resp.has_code = true;
@@ -145,7 +145,7 @@ const char *requestPin(PinMatrixRequestType type, const char *text) {
       PinMatrixAck *pma = (PinMatrixAck *)msg_tiny;
       usbTiny(0);
       if (sectrue == pinmatrix_done(pma->pin))  // convert via pinmatrix
-           return pma->pin;
+        return pma->pin;
       else
         return 0;
     }
@@ -286,7 +286,6 @@ bool protectChangePin(bool removal) {
             return false;
         }
     } else {
-
         pin = requestPin(PinMatrixRequestType_PinMatrixRequestType_NewSecond,
                          _("Please re-enter new PIN:"));
         if (pin == NULL) {

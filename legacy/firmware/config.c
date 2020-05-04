@@ -157,7 +157,6 @@ static Session *activeSessionCache;
 static uint32_t sessionUseCounter = 0;
 
 #define autoLockDelayMsDefault (10 * 60 * 1000U)  // 3 minutes
-#define bixin_autoLockDelayMsDefault (3 * 60 * 1000U)  // 3 minutes
 
 static secbool autoLockDelayMsCached = secfalse;
 static uint32_t autoLockDelayMs = autoLockDelayMsDefault;
@@ -1018,19 +1017,11 @@ uint32_t config_getAutoLockDelayMs() {
   }
 
   if (sectrue != storage_is_unlocked()) {
-  if (!g_bSelectSEFlag) {
     return autoLockDelayMsDefault;
-  } else {
-    return bixin_autoLockDelayMsDefault;
- }
   }
 
   if (sectrue != config_get_uint32(KEY_AUTO_LOCK_DELAY_MS, &autoLockDelayMs)) {
-  if (!g_bSelectSEFlag) {
     autoLockDelayMs = autoLockDelayMsDefault;
-  } else {
-    autoLockDelayMs = bixin_autoLockDelayMsDefault;
- }
   }
   autoLockDelayMsCached = sectrue;
   return autoLockDelayMs;
@@ -1127,3 +1118,4 @@ bool config_getMessageSE(BixinMessageSE_inputmessage_t *input_msg,
 void config_setIsBixinAPP(void) {
   g_bIsBixinAPP = true;
 }
+ 

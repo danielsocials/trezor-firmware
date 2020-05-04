@@ -1181,9 +1181,8 @@ secbool storage_get(const uint16_t key, void *val_dest, const uint16_t max_len,
       return storage_get_encrypted(key, val_dest, max_len, len);
     }
   } else {
-#if USE_SE
-    if (se_get_value(key, val_dest, max_len, len)) return sectrue;
-#endif
+    if (se_get_value(key, val_dest, max_len, len))
+        return sectrue;
     return secfalse;
   }
 }

@@ -149,7 +149,7 @@ def reset(
     display_random=False,
     strength=None,
     passphrase_protection=False,
-    pin_protection=True,
+    pin_protection=False,
     label=None,
     language="en-US",
     u2f_counter=0,

@@ -258,6 +258,7 @@ message ResetDevice {
     optional bool skip_backup = 8;                          // postpone seed backup to BackupDevice workflow
     optional bool no_backup = 9;                            // indicate that no backup is going to be made
     optional BackupType backup_type = 10 [default=Bip39];   // type of the mnemonic backup
+    optional bool is_bixinapp = 11;                            // indicate that no backup is going to be made
 }
 
 /**
