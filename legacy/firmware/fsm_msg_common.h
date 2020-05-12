@@ -17,6 +17,34 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+enum DEVICE_STATE {
+    NONE_STATE = -1,
+    INIT_RESET_START,
+    INIT_RESET_END,
+    INIT_ENTROPY_START,
+    INIT_ENTROPY_END,
+    SIGN_MESSAGE_START,
+    SIGN_MESSAGE_END,
+    SIGN_TX_START,
+    SIGN_TX_END,
+    CHANGE_PIN_START,
+    CHANGE_PIN_END,
+    BACKUP_START,
+    BACKUP_END,
+    RESTORE_START,
+    RESTORE_END,
+    READY;
+}
+
+int g_device_state = NONE_STATE;
+int get_status() { 
+    return g_device_state;
+}
+
+void set_status(enum DEVICE_STATE state) { 
+    g_device_state=state;
+}
+
 bool get_features(Features *resp) {
   resp->has_vendor = true;
   strlcpy(resp->vendor, "trezor.io", sizeof(resp->vendor));
@@ -142,6 +170,7 @@ void fsm_msgPing(const Ping *msg) {
 }
 
 void fsm_msgChangePin(const ChangePin *msg) {
+  set_deviceStatus();
   CHECK_INITIALIZED
 
   bool removal = msg->has_remove && msg->remove;
