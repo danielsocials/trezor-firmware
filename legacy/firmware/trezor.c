@@ -18,6 +18,7 @@
  */
 
 #include "trezor.h"
+
 #include "bitmaps.h"
 #include "bl_check.h"
 #include "buttons.h"
@@ -35,6 +36,7 @@
 #include "util.h"
 #if !EMULATOR
 #include <libopencm3/stm32/desig.h>
+
 #include "ble.h"
 #include "otp.h"
 #include "sys.h"

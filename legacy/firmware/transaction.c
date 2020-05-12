@@ -18,7 +18,9 @@
  */
 
 #include "transaction.h"
+
 #include <string.h>
+
 #include "address.h"
 #include "base58.h"
 #include "cash_addr.h"

@@ -21,6 +21,7 @@
 #define __TREZOR_H__
 
 #include <stdint.h>
+
 #include "version.h"
 
 #define STR(X) #X

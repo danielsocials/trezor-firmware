@@ -17,11 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "storage.h"
+
 #include <string.h>
 
 #include "common.h"
 #include "norcow.h"
-#include "storage.h"
 
 // Norcow storage key of configured PIN.
 #define PIN_KEY 0x0000

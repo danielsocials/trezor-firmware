@@ -17,18 +17,16 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "config.h"
+
 #include <libopencm3/stm32/flash.h>
 #include <stdint.h>
 #include <string.h>
-
-#include "messages-common.pb.h"
-#include "messages.pb.h"
 
 #include "aes/aes.h"
 #include "bip32.h"
 #include "bip39.h"
 #include "common.h"
-#include "config.h"
 #include "curves.h"
 #include "debug.h"
 #include "fsm.h"
@@ -37,6 +35,8 @@
 #include "layout2.h"
 #include "memory.h"
 #include "memzero.h"
+#include "messages-common.pb.h"
+#include "messages.pb.h"
 #include "mi2c.h"
 #include "pbkdf2.h"
 #include "protect.h"

@@ -17,10 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
 #include "memzero.h"
 #include "pbkdf2.h"
+#include "py/objstr.h"
 
 #define PRF_HMAC_SHA256 256
 #define PRF_HMAC_SHA512 512

@@ -27,6 +27,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+
 #include "ecdsa.h"
 #include "ed25519-donna/ed25519.h"
 #include "options.h"

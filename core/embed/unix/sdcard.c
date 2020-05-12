@@ -17,6 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "sdcard.h"
+
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,7 +29,6 @@
 
 #include "common.h"
 #include "profile.h"
-#include "sdcard.h"
 
 #ifndef SDCARD_FILE
 #define SDCARD_FILE profile_sdcard_path()

@@ -35,9 +35,8 @@
 #include "si2c.h"
 #include "sys.h"
 #include "usb.h"
-#include "util.h"
-
 #include "usb21_standard.h"
+#include "util.h"
 #include "webusb.h"
 #include "winusb.h"
 

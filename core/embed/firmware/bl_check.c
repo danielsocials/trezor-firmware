@@ -19,6 +19,7 @@
 
 #include <stdint.h>
 #include <string.h>
+
 #include "blake2s.h"
 #include "common.h"
 #include "flash.h"

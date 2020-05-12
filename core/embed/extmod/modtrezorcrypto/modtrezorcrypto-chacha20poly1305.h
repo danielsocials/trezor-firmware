@@ -17,10 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
 #include "chacha20poly1305/rfc7539.h"
 #include "memzero.h"
+#include "py/objstr.h"
 
 /// package: trezorcrypto.__init__
 

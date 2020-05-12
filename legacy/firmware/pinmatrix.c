@@ -17,12 +17,13 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "pinmatrix.h"
+
 #include <string.h>
 
 #include "common.h"
 #include "layout2.h"
 #include "oled.h"
-#include "pinmatrix.h"
 #include "rng.h"
 
 static char pinmatrix_perm[10] = "XXXXXXXXX";

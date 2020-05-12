@@ -17,6 +17,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "layout2.h"
+
 #include <ctype.h>
 #include <stdint.h>
 #include <string.h>
@@ -29,7 +31,6 @@
 #include "config.h"
 #include "dev_info.h"
 #include "gettext.h"
-#include "layout2.h"
 #include "memory.h"
 #include "memzero.h"
 #include "nem2.h"

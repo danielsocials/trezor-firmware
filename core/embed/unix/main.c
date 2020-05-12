@@ -37,6 +37,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include "common.h"
 #include "extmod/misc.h"
 #include "genhdr/mpversion.h"
 #include "input.h"
@@ -48,8 +49,6 @@
 #include "py/repl.h"
 #include "py/runtime.h"
 #include "py/stackctrl.h"
-
-#include "common.h"
 
 // Command line options, with their defaults
 STATIC bool compile_only = false;

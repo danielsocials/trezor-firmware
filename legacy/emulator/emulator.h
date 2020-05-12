@@ -22,9 +22,9 @@
 
 #if EMULATOR
 
-#include "strl.h"
-
 #include <stddef.h>
+
+#include "strl.h"
 
 void emulatorPoll(void);
 void emulatorRandom(void *buffer, size_t size);

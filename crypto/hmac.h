@@ -25,6 +25,7 @@
 #define __HMAC_H__
 
 #include <stdint.h>
+
 #include "sha2.h"
 
 typedef struct _HMAC_SHA256_CTX {

@@ -19,11 +19,10 @@
 
 #include <stdint.h>
 
-#include "usb.h"
-
 #include "debug.h"
 #include "messages.h"
 #include "timer.h"
+#include "usb.h"
 
 static volatile char tiny = 0;
 

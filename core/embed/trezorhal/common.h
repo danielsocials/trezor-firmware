@@ -22,6 +22,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+
 #include "secbool.h"
 
 #define XSTR(s) STR(s)

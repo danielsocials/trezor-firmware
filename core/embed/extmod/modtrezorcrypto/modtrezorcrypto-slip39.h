@@ -19,7 +19,6 @@
 
 #include "py/obj.h"
 #include "py/runtime.h"
-
 #include "slip39.h"
 
 /// package: trezorcrypto.slip39

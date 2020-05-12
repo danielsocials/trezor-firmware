@@ -33,17 +33,14 @@
 #include "font_robotomono_bold_20.h"
 #endif
 
-#include "qr-code-generator/qrcodegen.h"
-
-#include "uzlib.h"
-
-#include "common.h"
-#include "display.h"
-
 #include <stdarg.h>
 #include <string.h>
 
+#include "common.h"
+#include "display.h"
 #include "memzero.h"
+#include "qr-code-generator/qrcodegen.h"
+#include "uzlib.h"
 
 static int DISPLAY_BACKLIGHT = -1;
 static int DISPLAY_ORIENTATION = -1;

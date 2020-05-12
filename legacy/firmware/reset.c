@@ -18,6 +18,7 @@
  */
 
 #include "reset.h"
+
 #include "bip39.h"
 #include "common.h"
 #include "config.h"

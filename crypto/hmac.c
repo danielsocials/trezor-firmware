@@ -21,9 +21,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include "hmac.h"
+
 #include <string.h>
 
-#include "hmac.h"
 #include "memzero.h"
 #include "options.h"
 

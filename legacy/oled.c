@@ -17,12 +17,13 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "oled.h"
+
 #include <string.h>
 
 #include "buttons.h"
 #include "common.h"
 #include "memzero.h"
-#include "oled.h"
 #include "prompt.h"
 #include "timer.h"
 #include "util.h"

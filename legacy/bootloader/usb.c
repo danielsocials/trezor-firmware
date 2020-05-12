@@ -17,9 +17,10 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "usb.h"
+
 #include <libopencm3/stm32/flash.h>
 #include <libopencm3/usb/usbd.h>
-
 #include <string.h>
 
 #include "ble.h"
@@ -30,6 +31,7 @@
 #include "layout_boot.h"
 #include "memory.h"
 #include "memzero.h"
+#include "nordic_dfu.h"
 #include "oled.h"
 #include "rng.h"
 #include "secbool.h"
@@ -38,20 +40,14 @@
 #include "si2c.h"
 #include "signatures.h"
 #include "sys.h"
-#include "updateble.h"
-#include "usb.h"
-#include "util.h"
-
 #include "timer.h"
+#include "updateble.h"
 #include "usart.h"
-
-#include "nordic_dfu.h"
-
 #include "usb21_standard.h"
+#include "usb_desc.h"
+#include "util.h"
 #include "webusb.h"
 #include "winusb.h"
-
-#include "usb_desc.h"
 
 enum {
   STATE_READY,

@@ -18,6 +18,7 @@
  */
 
 #include "buttons.h"
+
 #include "common.h"
 
 struct buttonState button;

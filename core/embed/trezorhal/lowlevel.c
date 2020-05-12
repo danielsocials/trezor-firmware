@@ -20,6 +20,7 @@
 #include STM32_HAL_H
 
 #include "lowlevel.h"
+
 #include "flash.h"
 
 #pragma GCC optimize( \

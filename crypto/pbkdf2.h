@@ -25,6 +25,7 @@
 #define __PBKDF2_H__
 
 #include <stdint.h>
+
 #include "sha2.h"
 
 typedef struct _PBKDF2_HMAC_SHA256_CTX {

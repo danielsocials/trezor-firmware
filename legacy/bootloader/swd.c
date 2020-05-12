@@ -1,6 +1,8 @@
 #include "swd.h"
+
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/rcc.h>
+
 #include "nrf52.h"
 #include "updateble.h"
 

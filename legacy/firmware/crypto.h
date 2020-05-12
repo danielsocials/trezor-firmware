@@ -27,6 +27,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+
 #include "coins.h"
 #include "hasher.h"
 #include "messages-bitcoin.pb.h"

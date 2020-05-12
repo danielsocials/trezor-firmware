@@ -20,6 +20,7 @@
 #include <libopencm3/stm32/flash.h>
 #include <stdint.h>
 #include <string.h>
+
 #include "bl_data.h"
 #include "gettext.h"
 #include "layout.h"

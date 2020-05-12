@@ -17,12 +17,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
-#include "embed/extmod/trezorobj.h"
-
 #include "blake2s.h"
+#include "embed/extmod/trezorobj.h"
 #include "memzero.h"
+#include "py/objstr.h"
 
 /// package: trezorcrypto.__init__
 

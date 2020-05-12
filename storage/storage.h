@@ -22,6 +22,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+
 #include "secbool.h"
 
 // The length of the external salt in bytes.

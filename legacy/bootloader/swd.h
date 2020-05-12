@@ -1,6 +1,7 @@
 #ifndef __SWD_H_DEFINED__
 #define __SWD_H_DEFINED__
 #include <string.h>
+
 #include "nrf52.h"
 
 extern unsigned int g_dp_select;

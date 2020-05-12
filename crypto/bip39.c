@@ -21,10 +21,11 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include "bip39.h"
+
 #include <stdbool.h>
 #include <string.h>
 
-#include "bip39.h"
 #include "bip39_english.h"
 #include "hmac.h"
 #include "memzero.h"

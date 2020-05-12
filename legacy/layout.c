@@ -18,6 +18,7 @@
  */
 
 #include "layout.h"
+
 #include "ble.h"
 #include "chinese.h"
 #include "oled.h"

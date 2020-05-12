@@ -17,14 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
-#include "embed/extmod/trezorobj.h"
-
 #include "bip32.h"
 #include "bip39.h"
 #include "curves.h"
+#include "embed/extmod/trezorobj.h"
 #include "memzero.h"
+#include "py/objstr.h"
 #if !BITCOIN_ONLY
 #include "nem.h"
 #endif

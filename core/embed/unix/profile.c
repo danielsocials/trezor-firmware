@@ -18,10 +18,10 @@
  */
 
 #define _GNU_SOURCE
+#include "profile.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "profile.h"
 
 #define SVAR(varname)   \
   static char *varname; \

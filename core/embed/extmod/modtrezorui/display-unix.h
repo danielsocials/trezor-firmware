@@ -21,6 +21,7 @@
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "profile.h"
 
 #define EMULATOR_BORDER 16

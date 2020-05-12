@@ -16,12 +16,13 @@
  * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#include "webusb.h"
+
 #include <string.h>
 
 #include "common.h"
 #include "usb21_standard.h"
 #include "util.h"
-#include "webusb.h"
 
 const struct webusb_platform_descriptor
     webusb_platform_capability_descriptor_landing = {

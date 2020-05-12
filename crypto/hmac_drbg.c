@@ -21,7 +21,9 @@
  */
 
 #include "hmac_drbg.h"
+
 #include <string.h>
+
 #include "memzero.h"
 #include "sha2.h"
 

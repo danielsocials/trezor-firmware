@@ -18,6 +18,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "usart.h"
+
 #include <errno.h>
 #include <libopencm3/cm3/nvic.h>
 #include <libopencm3/stm32/gpio.h>
@@ -27,7 +29,6 @@
 #include <string.h>
 
 #include "ble.h"
-#include "usart.h"
 
 #if (_SUPPORT_DEBUG_UART_)
 /************************************************************************

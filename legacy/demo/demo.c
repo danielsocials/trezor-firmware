@@ -20,6 +20,7 @@
 #include <libopencm3/usb/hid.h>
 #include <libopencm3/usb/usbd.h>
 #include <string.h>
+
 #include "bitmaps.h"
 #include "buttons.h"
 #include "hmac.h"

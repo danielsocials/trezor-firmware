@@ -24,9 +24,11 @@
  */
 
 #include "bignum.h"
+
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
+
 #include "memzero.h"
 
 /* big number library */

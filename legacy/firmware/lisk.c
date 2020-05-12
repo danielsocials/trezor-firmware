@@ -18,6 +18,7 @@
  */
 
 #include "lisk.h"
+
 #include "bitmaps.h"
 #include "crypto.h"
 #include "curves.h"

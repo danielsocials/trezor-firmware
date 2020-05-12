@@ -1,3 +1,5 @@
+#include "sys.h"
+
 #include <libopencm3/cm3/scb.h>
 #include <libopencm3/stm32/gpio.h>
 #include <string.h>
@@ -6,7 +8,6 @@
 #include "ble.h"
 #include "oled.h"
 #include "si2c.h"
-#include "sys.h"
 #include "timer.h"
 
 uint8_t g_ucFlag = 0;

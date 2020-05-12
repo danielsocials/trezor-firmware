@@ -18,7 +18,9 @@
  */
 
 #include "coins.h"
+
 #include <string.h>
+
 #include "address.h"
 #include "base58.h"
 #include "ecdsa.h"

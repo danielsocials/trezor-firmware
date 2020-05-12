@@ -28,6 +28,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+
 #include "options.h"
 
 // bignum256 are 256 bits stored as 8*30 bit + 1*16 bit

@@ -17,7 +17,9 @@
  */
 
 #include "winusb.h"
+
 #include <libopencm3/usb/usbd.h>
+
 #include "common.h"
 #include "util.h"
 

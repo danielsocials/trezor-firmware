@@ -20,10 +20,12 @@
 #include <string.h>
 #include <sys/types.h>
 
+#include "bootui.h"
 #include "common.h"
 #include "display.h"
 #include "flash.h"
 #include "image.h"
+#include "messages.h"
 #include "mini_printf.h"
 #include "mpu.h"
 #include "rng.h"
@@ -31,9 +33,6 @@
 #include "touch.h"
 #include "usb.h"
 #include "version.h"
-
-#include "bootui.h"
-#include "messages.h"
 // #include "mpu.h"
 
 const uint8_t BOOTLOADER_KEY_M = 2;

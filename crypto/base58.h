@@ -26,6 +26,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+
 #include "hasher.h"
 #include "options.h"
 

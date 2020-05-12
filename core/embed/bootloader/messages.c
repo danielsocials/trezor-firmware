@@ -17,24 +17,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <string.h>
+#include "messages.h"
 
 #include <pb.h>
 #include <pb_decode.h>
 #include <pb_encode.h>
-#include "messages.pb.h"
+#include <string.h>
 
+#include "bootui.h"
 #include "common.h"
 #include "flash.h"
 #include "image.h"
+#include "memzero.h"
+#include "messages.pb.h"
 #include "secbool.h"
 #include "usb.h"
 #include "version.h"
-
-#include "bootui.h"
-#include "messages.h"
-
-#include "memzero.h"
 
 #define MSG_HEADER1_LEN 9
 #define MSG_HEADER2_LEN 1

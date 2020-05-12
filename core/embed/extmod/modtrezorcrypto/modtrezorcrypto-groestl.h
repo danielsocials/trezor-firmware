@@ -17,10 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
 #include "groestl.h"
 #include "memzero.h"
+#include "py/objstr.h"
 
 #define GROESTL512_DIGEST_LENGTH 64
 #define GROESTL512_BLOCK_LENGTH 128

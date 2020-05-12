@@ -21,6 +21,7 @@
 #define __DEBUG_H__
 
 #include <stdint.h>
+
 #include "trezor.h"
 
 #if DEBUG_LOG

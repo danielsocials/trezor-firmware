@@ -17,11 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "norcow.h"
+
 #include <string.h>
 
 #include "common.h"
 #include "flash.h"
-#include "norcow.h"
 
 // NRCW = 4e524357
 #define NORCOW_MAGIC ((uint32_t)0x5743524e)

@@ -18,6 +18,7 @@
  */
 
 #include "protect.h"
+
 #include "buttons.h"
 #include "common.h"
 #include "config.h"

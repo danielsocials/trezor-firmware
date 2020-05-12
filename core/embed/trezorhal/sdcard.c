@@ -45,12 +45,13 @@
 
 #include STM32_HAL_H
 
+#include "sdcard.h"
+
 #include <string.h>
 
 #include "dma.h"
 #include "irq.h"
 #include "sdcard-set_clr_card_detect.h"
-#include "sdcard.h"
 #include "supervise.h"
 
 #define SDMMC_CLK_ENABLE() __HAL_RCC_SDMMC1_CLK_ENABLE()

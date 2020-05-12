@@ -17,12 +17,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "flash.h"
+
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "common.h"
-#include "flash.h"
 
 static const uint32_t FLASH_SECTOR_TABLE[FLASH_SECTOR_COUNT + 1] = {
     [0] = 0x08000000,   // - 0x08003FFF |  16 KiB

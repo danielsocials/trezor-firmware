@@ -39,14 +39,13 @@
 #include "si2c.h"
 #include "sys.h"
 #include "trezor.h"
-#include "usb.h"
-#include "util.h"
-
 #include "u2f.h"
 #include "u2f/u2f.h"
 #include "u2f/u2f_hid.h"
 #include "u2f/u2f_keys.h"
 #include "u2f_knownapps.h"
+#include "usb.h"
+#include "util.h"
 
 // About 1/2 Second according to values used in protect.c
 #define U2F_TIMEOUT (800000 / 2)

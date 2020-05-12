@@ -1,6 +1,8 @@
 #ifndef __RTT_LOG_H__
 #define __RTT_LOG_H__
 
+#include <stdint.h>
+
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
 

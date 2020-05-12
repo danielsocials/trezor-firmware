@@ -20,6 +20,7 @@
 #define WEBUSB_H_INCLUDED
 
 #include <libopencm3/usb/usbd.h>
+
 #include "webusb_defs.h"
 
 // Arbitrary

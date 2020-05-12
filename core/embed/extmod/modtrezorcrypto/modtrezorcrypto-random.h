@@ -17,10 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
 #include "embed/extmod/trezorobj.h"
-
+#include "py/objstr.h"
 #include "rand.h"
 
 /// package: trezorcrypto.random

@@ -17,6 +17,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "fsm.h"
+
 #include <libopencm3/stm32/flash.h>
 
 #include "address.h"
@@ -32,7 +34,6 @@
 #include "curves.h"
 #include "debug.h"
 #include "ecdsa.h"
-#include "fsm.h"
 #include "gettext.h"
 #include "hmac.h"
 #include "layout2.h"
@@ -47,6 +48,7 @@
 #include "reset.h"
 #include "rfc6979.h"
 #include "rng.h"
+#include "rtt_log.h"
 #include "secp256k1.h"
 #include "signing.h"
 #include "supervise.h"
@@ -55,8 +57,6 @@
 #include "trezor.h"
 #include "usb.h"
 #include "util.h"
-
-#include "rtt_log.h"
 
 #if !BITCOIN_ONLY
 #include "ethereum.h"

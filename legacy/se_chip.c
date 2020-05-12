@@ -1,4 +1,5 @@
 #include "se_chip.h"
+
 #include "mi2c.h"
 #include "rtt_log.h"
 
@@ -87,11 +88,10 @@ void se_reset_storage(const uint16_t key) {
 }
 
 bool se_get_sn(void *val_dest, uint16_t max_len, uint16_t *len) {
-  rtt_log_print("SE get sn=%x value", key);
-  uint8_t flag = key >> 8;
-  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
-                                  val_dest, len, (flag & MI2C_PLAIN),
-                                  GET_SESTORE_DATA)) {
+  uint8_t ucSnCmd[5] = {0x00, 0xf5, 0x00, 00, 0x10};
+  rtt_log_print("SE get sn");
+  if (MI2C_OK !=
+      MI2CDRV_TransmitPlain(ucSnCmd, sizeof(ucSnCmd), val_dest, len)) {
     rtt_log_print("SE get sn failed");
     return false;
   }
@@ -102,13 +102,11 @@ bool se_get_sn(void *val_dest, uint16_t max_len, uint16_t *len) {
   return true;
 }
 
-bool se_get_version(const uint16_t key, void *val_dest, uint16_t max_len,
-                  uint16_t *len) {
-  rtt_log_print("SE get version=%x value", key);
-  uint8_t flag = key >> 8;
-  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
-                                  val_dest, len, (flag & MI2C_PLAIN),
-                                  GET_SESTORE_DATA)) {
+bool se_get_version(void *val_dest, uint16_t max_len, uint16_t *len) {
+  uint8_t ucVerCmd[5] = {0x00, 0xf7, 0x00, 00, 0x02};
+  rtt_log_print("SE get version");
+  if (MI2C_OK !=
+      MI2CDRV_TransmitPlain(ucVerCmd, sizeof(ucVerCmd), val_dest, len)) {
     rtt_log_print("SE get version failed");
     return false;
   }
@@ -118,50 +116,44 @@ bool se_get_version(const uint16_t key, void *val_dest, uint16_t max_len,
   rtt_log_print("SE get version sucess");
   return true;
 }
- 
-bool se_verify(const uint16_t key, void *val_dest, uint16_t max_len,
-                  uint16_t *len) {
-  rtt_log_print("SE get sn=%x value", key);
-  uint8_t flag = key >> 8;
-  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
-                                  val_dest, len, (flag & MI2C_PLAIN),
-                                  GET_SESTORE_DATA)) {
-    rtt_log_print("SE get sn failed");
+
+bool se_verify(void *message, uint16_t message_len, void *val_dest,
+               uint16_t max_len, uint16_t *len) {
+  uint8_t ucSignCmd[37] = {0x00, 0x72, 0x00, 00, 0x20};
+  rtt_log_print("SE device sign");
+
+  if (message_len > 0x20) {
+    return false;
+  }
+  memcpy(ucSignCmd + 5, message, message_len);
+  if (MI2C_OK !=
+      MI2CDRV_TransmitPlain(ucSignCmd, sizeof(ucSignCmd), val_dest, len)) {
+    rtt_log_print("SE device fail");
     return false;
   }
   if (*len > max_len) {
     return false;
   }
-  rtt_log_print("SE get sn sucess");
+  rtt_log_print("SE device sign sucess");
   return true;
 }
 
-bool se_backup(void *val_dest, uint16_t max_len, uint16_t *len) {
-  rtt_log_print("SE get sn=%x value", key);
-  uint8_t flag = key >> 8;
-  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
-                                  val_dest, len, (flag & MI2C_PLAIN),
+bool se_backup(void *val_dest, uint16_t *len) {
+  rtt_log_print("SE seed backup");
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, 0x12, NULL, 0,
+                                  (uint8_t *)val_dest, len, MI2C_PLAIN,
                                   GET_SESTORE_DATA)) {
-    rtt_log_print("SE get sn failed");
+    rtt_log_print("SE seed backup fail");
     return false;
   }
-  if (*len > max_len) {
-    return false;
-  }
-  rtt_log_print("SE get sn sucess");
+  rtt_log_print("SE seed backup success");
   return true;
 }
- 
-bool se_restore(void *val_dest, uint16_t max_len, uint16_t *len) {
-  rtt_log_print("SE get sn=%x value", key);
-  uint8_t flag = key >> 8;
-  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
-                                  val_dest, len, (flag & MI2C_PLAIN),
-                                  GET_SESTORE_DATA)) {
-    rtt_log_print("SE get sn failed");
-    return false;
-  }
-  if (*len > max_len) {
+bool se_restore(void *val_src, uint16_t src_len) {
+  rtt_log_print("SE seed restore");
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, 0x12, val_src, src_len, NULL,
+                                  NULL, MI2C_PLAIN, DELETE_SESTORE_DATA)) {
+    rtt_log_print("SE seed restore failed");
     return false;
   }
   rtt_log_print("SE get sn sucess");

@@ -3,6 +3,7 @@
 //
 
 #include "xmr.h"
+
 #include "int-util.h"
 #include "rand.h"
 #include "serialize.h"

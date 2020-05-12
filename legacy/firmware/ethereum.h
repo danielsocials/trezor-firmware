@@ -22,6 +22,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+
 #include "bip32.h"
 #include "messages-ethereum.pb.h"
 

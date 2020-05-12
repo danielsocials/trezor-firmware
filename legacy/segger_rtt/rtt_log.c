@@ -1,5 +1,3 @@
-#include <stdint.h>
-
 #include "rtt_log.h"
 
 void rtt_log_init(void) {

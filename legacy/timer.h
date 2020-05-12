@@ -21,6 +21,7 @@
 #define __TIMER_H__
 
 #include <stdint.h>
+
 #include "supervise.h"
 
 #define autoPowerOffMsDefault (90 * 1000U)

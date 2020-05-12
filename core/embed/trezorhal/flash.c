@@ -19,10 +19,11 @@
 
 #include STM32_HAL_H
 
+#include "flash.h"
+
 #include <string.h>
 
 #include "common.h"
-#include "flash.h"
 
 // see docs/memory.md for more information
 

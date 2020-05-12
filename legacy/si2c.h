@@ -2,6 +2,7 @@
 #define _si2c_H_
 
 #include <stdint.h>
+
 #include "trans_fifo.h"
 
 #define _SUPPORT_SOFTI2C_ 0

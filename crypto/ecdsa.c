@@ -22,6 +22,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include "ecdsa.h"
+
 #include <assert.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -31,7 +33,6 @@
 #include "base58.h"
 #include "bignum.h"
 #include "common.h"
-#include "ecdsa.h"
 #include "hmac.h"
 #include "memzero.h"
 #include "mi2c.h"

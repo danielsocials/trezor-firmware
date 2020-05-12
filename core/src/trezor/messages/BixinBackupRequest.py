@@ -12,15 +12,3 @@ if __debug__:
 
 class BixinBackupRequest(p.MessageType):
     MESSAGE_WIRE_TYPE = 905
-
-    def __init__(
-        self,
-        data: bytes = None,
-    ) -> None:
-        self.data = data
-
-    @classmethod
-    def get_fields(cls) -> Dict:
-        return {
-            1: ('data', p.BytesType, 0),  # required
-        }

@@ -25,6 +25,7 @@
 #define __ECDSA_H__
 
 #include <stdint.h>
+
 #include "bignum.h"
 #include "hasher.h"
 #include "options.h"

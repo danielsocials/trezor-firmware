@@ -17,26 +17,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "bootui.h"
+
 #include <string.h>
 
 #include "display.h"
-#include "mini_printf.h"
-
-#include "bootui.h"
-#include "touch.h"
-#include "version.h"
-
 #include "icon_cancel.h"
 #include "icon_confirm.h"
 #include "icon_done.h"
 #include "icon_fail.h"
 #include "icon_info.h"
 #include "icon_install.h"
-#include "icon_wipe.h"
-
 #include "icon_logo.h"
 #include "icon_safeplace.h"
 #include "icon_welcome.h"
+#include "icon_wipe.h"
+#include "mini_printf.h"
+#include "touch.h"
+#include "version.h"
 
 #define BACKLIGHT_NORMAL 150
 

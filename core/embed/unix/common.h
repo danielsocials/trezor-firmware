@@ -21,6 +21,7 @@
 #define __TREZORUNIX_COMMON_H__
 
 #include <stdint.h>
+
 #include "secbool.h"
 
 #define XSTR(s) STR(s)

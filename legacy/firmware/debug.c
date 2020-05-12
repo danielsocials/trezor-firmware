@@ -18,6 +18,7 @@
  */
 
 #include "debug.h"
+
 #include "oled.h"
 #include "trezor.h"
 #include "util.h"

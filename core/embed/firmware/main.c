@@ -23,7 +23,14 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "bl_check.h"
+#include "common.h"
+#include "display.h"
+#include "flash.h"
 #include "lib/utils/pyexec.h"
+#include "mpu.h"
+#include "ports/stm32/gccollect.h"
+#include "ports/stm32/pendsv.h"
 #include "py/compile.h"
 #include "py/gc.h"
 #include "py/mperrno.h"
@@ -31,15 +38,6 @@
 #include "py/repl.h"
 #include "py/runtime.h"
 #include "py/stackctrl.h"
-
-#include "ports/stm32/gccollect.h"
-#include "ports/stm32/pendsv.h"
-
-#include "bl_check.h"
-#include "common.h"
-#include "display.h"
-#include "flash.h"
-#include "mpu.h"
 #ifdef RDI
 #include "rdi.h"
 #endif

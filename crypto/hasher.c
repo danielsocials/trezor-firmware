@@ -21,6 +21,7 @@
  */
 
 #include "hasher.h"
+
 #include "ripemd160.h"
 
 void hasher_InitParam(Hasher *hasher, HasherType type, const void *param,

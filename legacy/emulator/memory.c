@@ -17,12 +17,12 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "memory.h"
+
 #include <assert.h>
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
-
-#include "memory.h"
 
 void flash_lock(void) { sync(); }
 
