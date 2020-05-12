@@ -159,3 +159,22 @@ bool se_restore(void *val_src, uint16_t src_len) {
   rtt_log_print("SE get sn sucess");
   return true;
 }
+
+void se_device_init(uint8_t mode, const char *passphrase) {
+  rtt_log_print("SE init");
+  uint8_t cmd[1024];
+  uint16_t passphraselen = 0;
+
+  if(NULL != passphrase){
+   passphraselen = strnlen(passphrase, 256);
+  }
+  cmd[0] = mode;
+  // salt LV
+  cmd[1] = passphraselen& 0xFF;
+  cmd[2] = (passphraselen >> 8) & 0xFF;
+  memcpy(cmd + 3, passphrase, passphraselen);
+  MI2CDRV_Transmit(MI2C_CMD_WR_PIN, 0x12, cmd,
+                   passphraselen + 3,NULL, NULL, MI2C_ENCRYPT,
+                   0x03);
+  return;
+}
