@@ -31,6 +31,7 @@ from . import (
     TrezorConnection,
     binance,
     btc,
+    bixin,
     cardano,
     cosi,
     crypto,
@@ -332,6 +333,7 @@ cli.add_command(tezos.cli)
 
 cli.add_command(firmware.firmware_update)
 cli.add_command(debug.cli)
+cli.add_command(bixin.cli)
 
 #
 # Main

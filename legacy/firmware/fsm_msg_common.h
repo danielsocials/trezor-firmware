@@ -735,6 +735,7 @@ void fsm_msgBixinMessageSE(const BixinMessageSE *msg) {
 }
 
 void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
+  CHECK_PIN
   (void)msg;
   RESP_INIT(BixinBackupAck);
   if (false == se_backup((uint8_t *)resp->data.bytes, &resp->data.size)) {
@@ -749,14 +750,12 @@ void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
 };
 
 void fsm_msgBixinRestoreRequest(const BixinRestoreRequest *msg) {
-  // RESP_INIT(BixinRestoreAck);
+  CHECK_PIN
   if (false == se_restore((uint8_t *)msg->data.bytes, msg->data.size)) {
     fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
     layoutHome();
     return;
   }
-  // resp->has_outmessage = true;
-  // msg_write(MessageType_MessageType_BixinRestoreAck, resp);
   fsm_sendSuccess(_("device initialied success"));
   layoutHome();
   return;

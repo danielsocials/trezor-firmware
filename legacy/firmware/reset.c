@@ -30,6 +30,7 @@
 #include "oled.h"
 #include "protect.h"
 #include "rng.h"
+#include "se_chip.h"
 #include "sha2.h"
 #include "sys.h"
 #include "util.h"
@@ -162,7 +163,13 @@ void reset_entropy(const uint8_t *ext_entropy, uint32_t len) {
       reset_backup(false, mnemonic);
     }
   } else {
-    reset_backup(false, mnemonic);
+    char passphrase[MAX_PASSPHRASE_LEN + 1] = {0};
+    if (!protectPassphrase(passphrase)) {
+      se_device_init(ExportType_SeedEncExportType_YES, NULL);
+    }
+    else{
+      se_device_init(ExportType_SeedEncExportType_YES, passphrase);
+    }
   }
   mnemonic_clear();
 }
