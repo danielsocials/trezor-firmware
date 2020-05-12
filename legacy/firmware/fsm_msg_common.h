@@ -671,7 +671,7 @@ void fsm_msgBixinSeedOperate(const BixinSeedOperate *msg) {
       uiTemp = random32();
       memcpy(ucBuf + 1 + i * 4, &uiTemp, 4);
     }
-    ucBuf[0] = config_setSeedsExportFlag(ExportType_SeedEncExportType_NO);
+    ucBuf[0] = config_setSeedsExportFlag(ExportType_SeedEncExportType_YES);
     if (!config_setSeedsBytes(ucBuf, 65)) {
       fsm_sendFailure(FailureType_Failure_NotInitialized, NULL);
       layoutHome();
