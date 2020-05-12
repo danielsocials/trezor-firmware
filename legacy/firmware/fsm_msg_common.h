@@ -16,6 +16,8 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "mi2c.h"
+#include "se_chip.h"
 
 bool get_features(Features *resp) {
   resp->has_vendor = true;
@@ -727,40 +729,44 @@ void fsm_msgBixinMessageSE(const BixinMessageSE *msg) {
 }
 
 void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
+  (void)msg;
   RESP_INIT(BixinBackupAck);
-  if (false == se_getBackup(&resp->data, resp->size)) {
+  if (false == se_backup((uint8_t *)resp->data.bytes, &resp->data.size)) {
     fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
     layoutHome();
     return;
   }
-  resp->has_data = true;
+  // resp->has_data = true;
   msg_write(MessageType_MessageType_BixinBackupAck, resp);
-  layoutHome(); 
+  layoutHome();
   return;
 };
 
 void fsm_msgBixinRestoreRequest(const BixinRestoreRequest *msg) {
-  RESP_INIT(BixinRestoreAck);
-  if (false == se_restore(&msg->data, resp->size) {
+  // RESP_INIT(BixinRestoreAck);
+  if (false == se_restore((uint8_t *)msg->data.bytes, msg->data.size)) {
     fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
     layoutHome();
     return;
   }
-  resp->has_outmessage = true;
-  msg_write(MessageType_MessageType_BixinRestoreAck, resp);
-  layoutHome(); 
-  return; 
+  // resp->has_outmessage = true;
+  // msg_write(MessageType_MessageType_BixinRestoreAck, resp);
+  fsm_sendSuccess(_("device initialied success"));
+  layoutHome();
+  return;
 };
 
 void fsm_msgBixinVerifyDeviceRequest(const BixinVerifyDeviceRequest *msg) {
   RESP_INIT(BixinVerifyDeviceAck);
-  if (false == se_verify(&msg->data, msg->size)) {
+  resp->data.size = 512;
+  if (false == se_verify((uint8_t *)msg->data.bytes, msg->data.size,
+                         resp->data.bytes, 0x40, &resp->data.size)) {
     fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
     layoutHome();
     return;
   }
-  resp->has_outmessage = true;
+  // resp->has_outmessage = true;
   msg_write(MessageType_MessageType_BixinVerifyDeviceAck, resp);
-  layoutHome(); 
+  layoutHome();
   return;
-}; 
+};
