@@ -708,7 +708,7 @@ void fsm_msgBixinSeedOperate(const BixinSeedOperate *msg) {
   layoutHome();
 }
 
-void fsm_msgBixinUpgrade(const BixinUpgrade *msg) {
+void fsm_msgBixinReboot(const BixinReboot *msg) {
   (void)msg;
   fsm_sendSuccess(_("reboot start"));
 #if !EMULATOR
@@ -731,3 +731,42 @@ void fsm_msgBixinMessageSE(const BixinMessageSE *msg) {
   layoutHome();
   return;
 }
+
+void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
+  RESP_INIT(BixinBackupAck);
+  if (false == se_getBackup(&resp->data, resp->size)) {
+    fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
+    layoutHome();
+    return;
+  }
+  resp->has_data = true;
+  msg_write(MessageType_MessageType_BixinBackupAck, resp);
+  layoutHome(); 
+  return;
+};
+
+void fsm_msgBixinRestoreRequest(const BixinRestoreRequest *msg) {
+  RESP_INIT(BixinRestoreAck);
+  if (false == se_restore(&msg->data, resp->size) {
+    fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
+    layoutHome();
+    return;
+  }
+  resp->has_outmessage = true;
+  msg_write(MessageType_MessageType_BixinRestoreAck, resp);
+  layoutHome(); 
+  return; 
+};
+
+void fsm_msgBixinVerifyDeviceRequest(const BixinVerifyDeviceRequest *msg) {
+  RESP_INIT(BixinVerifyDeviceAck);
+  if (false == se_verify(&msg->data, msg->size)) {
+    fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
+    layoutHome();
+    return;
+  }
+  resp->has_outmessage = true;
+  msg_write(MessageType_MessageType_BixinVerifyDeviceAck, resp);
+  layoutHome(); 
+  return;
+}; 
