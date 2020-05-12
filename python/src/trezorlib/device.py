@@ -222,7 +222,7 @@ def se_backup(client):
     ret = client.call(messages.BixinBackupRequest())
     return ret
 
-@expect(messages.BixinRestoreAck, field="data")
+@expect(messages.Success, field="message")
 def se_restore(client, data):
     ret = client.call(messages.BixinRestoreRequest(data=data))
     return ret

@@ -46,8 +46,7 @@ def backup(client):
 def restore(client, hex_data):
     """Perform device seed restore."""
     data = bytes.fromhex(hex_data)
-    ret = device.se_restore(client, data) 
-    return "data: {}".format(ret.hex())
+    return device.se_restore(client, data) 
 
 @cli.command()
 @click.argument("hex_data")
