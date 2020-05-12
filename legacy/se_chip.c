@@ -65,6 +65,7 @@ bool se_get_value(const uint16_t key, void *val_dest, uint16_t max_len,
   rtt_log_print("SE get key suucess");
   return true;
 }
+
 bool se_delete_key(const uint16_t key) {
   rtt_log_print("SE delete key=%x", key);
   if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0, NULL,
@@ -83,4 +84,86 @@ void se_reset_storage(const uint16_t key) {
     rtt_log_print("SE reset suucess");
   } else
     rtt_log_print("SE reset failed");
+}
+
+bool se_get_sn(void *val_dest, uint16_t max_len, uint16_t *len) {
+  rtt_log_print("SE get sn=%x value", key);
+  uint8_t flag = key >> 8;
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
+                                  val_dest, len, (flag & MI2C_PLAIN),
+                                  GET_SESTORE_DATA)) {
+    rtt_log_print("SE get sn failed");
+    return false;
+  }
+  if (*len > max_len) {
+    return false;
+  }
+  rtt_log_print("SE get sn sucess");
+  return true;
+}
+
+bool se_get_version(const uint16_t key, void *val_dest, uint16_t max_len,
+                  uint16_t *len) {
+  rtt_log_print("SE get version=%x value", key);
+  uint8_t flag = key >> 8;
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
+                                  val_dest, len, (flag & MI2C_PLAIN),
+                                  GET_SESTORE_DATA)) {
+    rtt_log_print("SE get version failed");
+    return false;
+  }
+  if (*len > max_len) {
+    return false;
+  }
+  rtt_log_print("SE get version sucess");
+  return true;
+}
+ 
+bool se_verify(const uint16_t key, void *val_dest, uint16_t max_len,
+                  uint16_t *len) {
+  rtt_log_print("SE get sn=%x value", key);
+  uint8_t flag = key >> 8;
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
+                                  val_dest, len, (flag & MI2C_PLAIN),
+                                  GET_SESTORE_DATA)) {
+    rtt_log_print("SE get sn failed");
+    return false;
+  }
+  if (*len > max_len) {
+    return false;
+  }
+  rtt_log_print("SE get sn sucess");
+  return true;
+}
+
+bool se_backup(void *val_dest, uint16_t max_len, uint16_t *len) {
+  rtt_log_print("SE get sn=%x value", key);
+  uint8_t flag = key >> 8;
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
+                                  val_dest, len, (flag & MI2C_PLAIN),
+                                  GET_SESTORE_DATA)) {
+    rtt_log_print("SE get sn failed");
+    return false;
+  }
+  if (*len > max_len) {
+    return false;
+  }
+  rtt_log_print("SE get sn sucess");
+  return true;
+}
+ 
+bool se_restore(void *val_dest, uint16_t max_len, uint16_t *len) {
+  rtt_log_print("SE get sn=%x value", key);
+  uint8_t flag = key >> 8;
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, (key & 0xFF), NULL, 0,
+                                  val_dest, len, (flag & MI2C_PLAIN),
+                                  GET_SESTORE_DATA)) {
+    rtt_log_print("SE get sn failed");
+    return false;
+  }
+  if (*len > max_len) {
+    return false;
+  }
+  rtt_log_print("SE get sn sucess");
+  return true;
 }
