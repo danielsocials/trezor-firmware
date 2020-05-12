@@ -142,6 +142,6 @@ void fsm_msgBixinSeedOperate(const BixinSeedOperate *msg);
 void fsm_msgBixinMessageSE(const BixinMessageSE *msg);
 void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg);
 void fsm_msgBixinRestoreRequest(const BixinRestoreRequest *msg);
-void fsm_msgBixinVerifyDeviceRequest(const BixinVerifyDeviceRequest *msg); 
+void fsm_msgBixinVerifyDeviceRequest(const BixinVerifyDeviceRequest *msg);
 
 #endif
