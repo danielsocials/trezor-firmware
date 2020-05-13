@@ -39,7 +39,7 @@ def apply_settings(
     use_se: bool = None,
     is_bixinapp: bool = None,
     fee_pay_confirm: bool = None,
-    fee_pay_money_limt: int = None,
+    fee_pay_money_limit: int = None,
     fee_pay_times: int = None,
 ):
     settings = messages.ApplySettings()
@@ -63,6 +63,14 @@ def apply_settings(
         settings.use_se = use_se
     if is_bixinapp is not None:
         settings.is_bixinapp = is_bixinapp
+    if fee_pay_pin is not None:
+        settings.fee_pay_pin = fee_pay_pin
+    if fee_pay_confirm is not None:
+        settings.fee_pay_confirm = fee_pay_confirm
+    if fee_pay_money_limit is not None:
+        settings.fee_pay_money_limit = fee_pay_money_limit
+    if fee_pay_times is not None:
+        settings.fee_pay_times = fee_pay_times
 
     out = client.call(settings)
     client.init_device()  # Reload Features

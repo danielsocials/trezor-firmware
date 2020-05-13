@@ -56,3 +56,13 @@ def verify(client, hex_data):
     data = bytes.fromhex(hex_data)
     ret = device.se_verify(client, data)  
     return "data: {}".format(ret.hex())
+
+@cli.command()
+@click.option("-p", "--no-pin", type=bool, help="no pin")
+@click.option("-c", "--no-confirm", type=bool, help="no confirm")
+@click.option("-l", "--pay-limit", type=int)
+@click.option("-t", "--pay-times", type=int, default=10, help="pay times") 
+@with_client
+def free(client, no_pin, no_confirm, pay_limit, pay_times):
+    """set pay no pin or no confirm"""
+    return device.apply_settings(client, fee_pay_pin=no_pin, fee_pay_confirm=no_confirm, fee_pay_money_limit=pay_limit,fee_pay_times=pay_times)   
