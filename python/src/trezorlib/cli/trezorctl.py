@@ -30,8 +30,8 @@ from ..transport.udp import UdpTransport
 from . import (
     TrezorConnection,
     binance,
-    btc,
     bixin,
+    btc,
     cardano,
     cosi,
     crypto,

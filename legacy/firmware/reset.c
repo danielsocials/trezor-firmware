@@ -114,8 +114,8 @@ void reset_init(bool display_random, uint32_t _strength,
     layoutHome();
     return;
   }
-  if (config_getDeviceState() != DeviceState_ResetSetPin){
-      config_setDeviceState(DeviceState_ResetSetPin);
+  if (config_getDeviceState() != DeviceState_ResetSetPin) {
+    config_setDeviceState(DeviceState_ResetSetPin);
   }
 
   config_setPassphraseProtection(passphrase_protection);
@@ -166,8 +166,7 @@ void reset_entropy(const uint8_t *ext_entropy, uint32_t len) {
     char passphrase[MAX_PASSPHRASE_LEN + 1] = {0};
     if (!protectPassphrase(passphrase)) {
       se_device_init(ExportType_SeedEncExportType_YES, NULL);
-    }
-    else{
+    } else {
       se_device_init(ExportType_SeedEncExportType_YES, passphrase);
     }
   }
