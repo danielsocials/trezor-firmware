@@ -18,6 +18,7 @@
  */
 #include "mi2c.h"
 #include "se_chip.h"
+#include "storage.h"
 
 bool get_features(Features *resp) {
   resp->has_vendor = true;
@@ -735,18 +736,40 @@ void fsm_msgBixinMessageSE(const BixinMessageSE *msg) {
 }
 
 void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
-  CHECK_PIN
   (void)msg;
+
+  CHECK_PIN
+  CHECK_INITIALIZED
+
   RESP_INIT(BixinBackupAck);
-  if (false == se_backup((uint8_t *)resp->data.bytes, &resp->data.size)) {
-    fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
-    layoutHome();
-    return;
+  if (g_bSelectSEFlag) {
+    if (false == se_backup((uint8_t *)resp->data.bytes, &resp->data.size)) {
+      fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
+      layoutHome();
+      return;
+    }
+  } else {
+    uint16_t menmonic_len = 512 - 92;
+    uint16_t offset = 0;
+    if (!config_hasPin()) {
+      fsm_sendFailure(FailureType_Failure_ActionCancelled, NULL);
+      layoutHome();
+      return;
+    }
+    storage_getHardwareSalt(resp->data.bytes);
+    offset += 32;
+    // RANDOM_SALT_SIZE + KEYS_SIZE + PVC_SIZE
+    storage_get_EDEK_PVC_KEY(resp->data.bytes + offset);
+    offset += 60;
+    storage_getMnemonicEnc(resp->data.bytes + offset, &menmonic_len);
+    offset += menmonic_len;
+    resp->data.size = offset;
   }
+
   msg_write(MessageType_MessageType_BixinBackupAck, resp);
   layoutHome();
   return;
-};
+}
 
 void fsm_msgBixinRestoreRequest(const BixinRestoreRequest *msg) {
   CHECK_PIN
