@@ -18,6 +18,7 @@
  */
 
 #include "reset.h"
+
 #include "bip39.h"
 #include "common.h"
 #include "config.h"
@@ -165,10 +166,23 @@ void reset_entropy(const uint8_t *ext_entropy, uint32_t len) {
   } else {
     char passphrase[MAX_PASSPHRASE_LEN + 1] = {0};
     if (!protectPassphrase(passphrase)) {
-      se_device_init(ExportType_SeedEncExportType_YES, NULL);
-    } else {
-      se_device_init(ExportType_SeedEncExportType_YES, passphrase);
+      if(!se_device_init(ExportType_SeedEncExportType_YES, NULL)){
+        fsm_sendSuccess(_("Device failed initialized"));
+        layoutHome();
+        return;
+      }
     }
+    else{
+      if(!se_device_init(ExportType_SeedEncExportType_YES, passphrase)){
+        fsm_sendSuccess(_("Device failed initialized"));
+        layoutHome();
+        return;
+      }
+
+    }
+    fsm_sendSuccess(_("Device successfully initialized"));
+    layoutHome();
+    return;
   }
   mnemonic_clear();
 }

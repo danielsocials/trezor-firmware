@@ -17,6 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "usb.h"
+
 #include <arpa/inet.h>
 #include <assert.h>
 #include <fcntl.h>
@@ -26,10 +28,8 @@
 #include <sys/socket.h>
 #include <time.h>
 
-#include "touch.h"
-#include "usb.h"
-
 #include "memzero.h"
+#include "touch.h"
 
 void __attribute__((noreturn))
 __fatal_error(const char *expr, const char *msg, const char *file, int line,

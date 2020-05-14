@@ -17,9 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "flash.h"
-
 #include "embed/extmod/trezorobj.h"
+#include "flash.h"
 
 /// package: trezorio.__init__
 

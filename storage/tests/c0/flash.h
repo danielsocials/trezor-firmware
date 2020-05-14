@@ -22,6 +22,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+
 #include "secbool.h"
 
 #define FLASH_SECTOR_COUNT 24

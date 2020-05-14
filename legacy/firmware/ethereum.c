@@ -20,6 +20,7 @@
  */
 
 #include "ethereum.h"
+
 #include "address.h"
 #include "crypto.h"
 #include "ecdsa.h"

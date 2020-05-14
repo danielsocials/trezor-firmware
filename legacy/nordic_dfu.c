@@ -1,4 +1,5 @@
 #include "nordic_dfu.h"
+
 #include "layout.h"
 #include "sys.h"
 #include "timer.h"

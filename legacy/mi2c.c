@@ -301,6 +301,7 @@ void vMI2CDRV_SynSessionKey(void) {
                                     (uint8_t *)&ucSessionMode, 1, NULL, 0, 0x00,
                                     SET_SESTORE_DATA)) {
       random_buffer_ST(ucRandom, sizeof(ucRandom));
+      memset(ucRandom,1,16);
       memcpy(g_ucSessionKey, (uint8_t *)ucDefaultSessionKey,
              sizeof(ucDefaultSessionKey));
       if (MI2C_OK == MI2CDRV_Transmit(MI2C_CMD_WR_PIN, SESSION_ADDR_INDEX,
@@ -328,7 +329,7 @@ uint32_t MI2CDRV_Transmit(uint8_t ucCmd, uint8_t ucIndex, uint8_t *pucSendData,
   aes_decrypt_ctx ctxd;
   // se apdu
   if (MI2C_ENCRYPT == ucMode) {
-    if (SET_SESTORE_DATA == ucWRFlag) {
+    if (SET_SESTORE_DATA == ucWRFlag || DEVICEINIT_DATA == ucWRFlag) {
       // data aes encrypt
       randomBuf_SE(ucRandom, sizeof(ucRandom));
       memset(&ctxe, 0, sizeof(aes_encrypt_ctx));

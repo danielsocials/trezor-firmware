@@ -17,11 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "flash.h"
+
 #include <libopencm3/stm32/flash.h>
 #include <string.h>
 
 #include "common.h"
-#include "flash.h"
 #include "memory.h"
 #include "supervise.h"
 

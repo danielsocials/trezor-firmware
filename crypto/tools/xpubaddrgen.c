@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+
 #include "bip32.h"
 #include "curves.h"
 #include "ecdsa.h"

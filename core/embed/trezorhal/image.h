@@ -21,6 +21,7 @@
 #define __TREZORHAL_IMAGE_H__
 
 #include <stdint.h>
+
 #include "secbool.h"
 
 #define BOARDLOADER_START 0x08000000

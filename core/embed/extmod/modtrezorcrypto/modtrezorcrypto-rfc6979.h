@@ -18,7 +18,6 @@
  */
 
 #include "py/objstr.h"
-
 #include "rfc6979.h"
 
 /// package: trezorcrypto.__init__

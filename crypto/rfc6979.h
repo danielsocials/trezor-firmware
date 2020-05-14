@@ -26,6 +26,7 @@
 #define __RFC6979_H__
 
 #include <stdint.h>
+
 #include "bignum.h"
 #include "hmac_drbg.h"
 

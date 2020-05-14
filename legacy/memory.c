@@ -18,8 +18,10 @@
  */
 
 #include "memory.h"
+
 #include <libopencm3/stm32/flash.h>
 #include <stdint.h>
+
 #include "sha2.h"
 
 #define FLASH_OPTION_BYTES_1 (*(const uint64_t *)0x1FFFC000)

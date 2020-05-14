@@ -20,6 +20,7 @@
 #define WINUSB_H_INCLUDED
 
 #include <libopencm3/usb/usbd.h>
+
 #include "winusb_defs.h"
 
 // Arbitrary, but must be equivalent to the last character in extra string

@@ -22,6 +22,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+
 #include "trezor.h"
 #include "u2f/u2f_hid.h"
 

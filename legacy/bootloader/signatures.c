@@ -17,6 +17,8 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "signatures.h"
+
 #include <string.h>
 
 #include "bootloader.h"
@@ -25,7 +27,6 @@
 #include "memzero.h"
 #include "secp256k1.h"
 #include "sha2.h"
-#include "signatures.h"
 
 const uint32_t FIRMWARE_MAGIC_OLD = 0x525a5254;  // TRZR
 const uint32_t FIRMWARE_MAGIC_NEW = 0x465a5254;  // TRZF

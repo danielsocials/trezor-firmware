@@ -23,6 +23,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "bitmaps.h"
 
 bool layoutNeedRefresh(void);

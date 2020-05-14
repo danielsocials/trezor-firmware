@@ -17,13 +17,13 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <string.h>
+#include "bootloader.h"
 
 #include <libopencm3/cm3/scb.h>
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/rcc.h>
+#include <string.h>
 
-#include "bootloader.h"
 #include "buttons.h"
 #include "layout.h"
 #include "layout_boot.h"

@@ -17,13 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/mpz.h"
-#include "py/objint.h"
-#include "py/objstr.h"
-
 #include "bignum.h"
 #include "memzero.h"
 #include "monero/monero.h"
+#include "py/mpz.h"
+#include "py/objint.h"
+#include "py/objstr.h"
 
 /// package: trezorcrypto.monero
 

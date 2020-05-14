@@ -18,6 +18,7 @@
  */
 
 #include "otp.h"
+
 #include <libopencm3/stm32/flash.h>
 
 #define FLASH_OTP_BASE 0x1FFF7800U

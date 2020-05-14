@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+
 #include "bip32.h"
 #include "bip39.h"
 #include "curves.h"

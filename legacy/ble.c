@@ -1,4 +1,5 @@
 #include "ble.h"
+
 #include "layout.h"
 #include "rtt_log.h"
 #include "sys.h"

@@ -21,6 +21,7 @@
 #define __STELLAR_H__
 
 #include <stdbool.h>
+
 #include "base32.h"
 #include "bip32.h"
 #include "crypto.h"

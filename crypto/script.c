@@ -21,7 +21,9 @@
  */
 
 #include "script.h"
+
 #include <string.h>
+
 #include "base58.h"
 
 int script_output_to_address(const uint8_t *script, int scriptlen, char *addr,

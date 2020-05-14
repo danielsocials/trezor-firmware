@@ -19,14 +19,14 @@
 
 #include STM32_HAL_H
 
+#include "common.h"
+
 #include <string.h>
 
-#include "common.h"
 #include "display.h"
 #include "flash.h"
 #include "hmac_drbg.h"
 #include "rand.h"
-
 #include "stm32f4xx_ll_utils.h"
 
 // from util.s

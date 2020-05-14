@@ -17,10 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
 #include "ecdsa.h"
 #include "nist256p1.h"
+#include "py/objstr.h"
 
 /// package: trezorcrypto.nist256p1
 

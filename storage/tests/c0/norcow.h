@@ -21,6 +21,7 @@
 #define __NORCOW_H__
 
 #include <stdint.h>
+
 #include "secbool.h"
 
 /*

@@ -30,8 +30,10 @@
 // responds with StellarSignedTx
 
 #include "stellar.h"
+
 #include <stdbool.h>
 #include <time.h>
+
 #include "base32.h"
 #include "bignum.h"
 #include "bip32.h"

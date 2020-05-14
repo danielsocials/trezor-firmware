@@ -19,7 +19,6 @@
 
 #include "common.h"
 #include "py/objstr.h"
-
 #include "vendor/secp256k1-zkp/include/secp256k1.h"
 #include "vendor/secp256k1-zkp/include/secp256k1_ecdh.h"
 #include "vendor/secp256k1-zkp/include/secp256k1_preallocated.h"

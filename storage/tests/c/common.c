@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "common.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "common.h"
 
 void wait_random(void) {}
 

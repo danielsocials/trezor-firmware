@@ -17,9 +17,9 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <time.h>
-
 #include "timer.h"
+
+#include <time.h>
 
 void timer_init(void) {}
 

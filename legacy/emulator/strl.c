@@ -18,9 +18,10 @@
  */
 
 #include "strl.h"
-#include "util.h"
 
 #include <string.h>
+
+#include "util.h"
 
 #if (!defined __APPLE__) && (!defined HAVE_STRLCPY)
 size_t strlcpy(char *dst, const char *src, size_t size) {

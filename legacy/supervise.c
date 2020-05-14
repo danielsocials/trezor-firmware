@@ -18,9 +18,11 @@
  */
 
 #include "supervise.h"
+
 #include <libopencm3/cm3/scb.h>
 #include <libopencm3/stm32/flash.h>
 #include <stdint.h>
+
 #include "memory.h"
 
 #if !EMULATOR

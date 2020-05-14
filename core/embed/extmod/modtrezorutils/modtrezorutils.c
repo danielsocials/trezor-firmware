@@ -18,15 +18,14 @@
  */
 
 #include "py/runtime.h"
-
 #include "version.h"
 
 #if MICROPY_PY_TREZORUTILS
 
-#include "embed/extmod/trezorobj.h"
-
 #include <string.h>
+
 #include "common.h"
+#include "embed/extmod/trezorobj.h"
 
 /// def consteq(sec: bytes, pub: bytes) -> bool:
 ///     """

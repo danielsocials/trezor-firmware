@@ -23,8 +23,10 @@
  */
 
 #include "slip39.h"
+
 #include <stdio.h>
 #include <string.h>
+
 #include "slip39_wordlist.h"
 
 /**

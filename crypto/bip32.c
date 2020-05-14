@@ -22,6 +22,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include "bip32.h"
+
 #include <stdbool.h>
 #include <string.h>
 
@@ -29,7 +31,6 @@
 #include "aes/aes.h"
 #include "base58.h"
 #include "bignum.h"
-#include "bip32.h"
 #include "common.h"
 #include "curves.h"
 #include "ecdsa.h"

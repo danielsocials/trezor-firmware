@@ -18,7 +18,9 @@
  */
 
 #include "crypto.h"
+
 #include <string.h>
+
 #include "address.h"
 #include "aes/aes.h"
 #include "base58.h"

@@ -17,11 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "rng.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "common.h"
-#include "rng.h"
 
 uint32_t rng_get(void) {
   static FILE *frand = NULL;

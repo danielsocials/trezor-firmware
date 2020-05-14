@@ -1,4 +1,5 @@
 #include "chinese.h"
+
 #include "oled.h"
 
 // clang-format off

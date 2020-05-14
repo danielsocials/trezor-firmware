@@ -21,6 +21,7 @@
 #define __TREZORHAL_USB_H__
 
 #include <stdint.h>
+
 #include "secbool.h"
 
 #define USB_EP_DIR_MASK 0x80

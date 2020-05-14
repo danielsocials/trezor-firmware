@@ -17,16 +17,16 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <string.h>
+#include "timer.h"
 
 #include <libopencm3/cm3/systick.h>
 #include <libopencm3/cm3/vector.h>
 #include <libopencm3/stm32/rcc.h>
+#include <string.h>
 
 #include "buttons.h"
 #include "layout.h"
 #include "sys.h"
-#include "timer.h"
 
 /* 1 tick = 1 ms */
 extern volatile uint32_t system_millis;

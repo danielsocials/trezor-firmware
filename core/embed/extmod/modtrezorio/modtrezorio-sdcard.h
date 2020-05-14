@@ -19,7 +19,6 @@
 
 #include "embed/extmod/trezorobj.h"
 #include "py/mperrno.h"
-
 #include "sdcard.h"
 
 /// package: trezorio.sdcard

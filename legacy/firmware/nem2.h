@@ -20,12 +20,11 @@
 #ifndef __NEM2_H__
 #define __NEM2_H__
 
-#include "nem.h"
-#include "nem_mosaics.h"
+#include <stdbool.h>
 
 #include "messages-nem.pb.h"
-
-#include <stdbool.h>
+#include "nem.h"
+#include "nem_mosaics.h"
 
 const char *nem_validate_common(NEMTransactionCommon *common, bool inner);
 const char *nem_validate_transfer(const NEMTransfer *transfer, uint8_t network);

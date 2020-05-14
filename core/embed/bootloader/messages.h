@@ -21,6 +21,7 @@
 #define __MESSAGES_H__
 
 #include <stdint.h>
+
 #include "image.h"
 #include "secbool.h"
 

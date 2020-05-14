@@ -17,10 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/obj.h"
-
 #include "embed/extmod/trezorobj.h"
-
+#include "py/obj.h"
 #include "shamir.h"
 
 #define SHAMIR_MAX_SHARE_COUNT 16

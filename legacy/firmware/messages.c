@@ -17,19 +17,19 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "messages.h"
+
 #include <string.h>
 
 #include "debug.h"
 #include "fsm.h"
 #include "gettext.h"
 #include "memzero.h"
-#include "messages.h"
-#include "trezor.h"
-#include "util.h"
-
 #include "messages.pb.h"
 #include "pb_decode.h"
 #include "pb_encode.h"
+#include "trezor.h"
+#include "util.h"
 
 struct MessagesMap_t {
   char type;  // n = normal, d = debug

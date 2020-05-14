@@ -16,10 +16,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "common.h"
+
 #include <stdio.h>
 
 #include "bitmaps.h"
-#include "common.h"
 #include "firmware/usb.h"
 #include "hmac_drbg.h"
 #include "layout.h"

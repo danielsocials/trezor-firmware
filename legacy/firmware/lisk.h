@@ -21,6 +21,7 @@
 #define __LISK_H__
 
 #include <stdbool.h>
+
 #include "bip32.h"
 #include "messages-lisk.pb.h"
 

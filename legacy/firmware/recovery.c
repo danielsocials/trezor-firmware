@@ -19,7 +19,9 @@
  */
 
 #include "recovery.h"
+
 #include <ctype.h>
+
 #include "bip39.h"
 #include "config.h"
 #include "fsm.h"

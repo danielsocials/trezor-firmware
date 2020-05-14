@@ -25,9 +25,8 @@
 
 #if MICROPY_PY_TREZORCONFIG
 
-#include "embed/extmod/trezorobj.h"
-
 #include "common.h"
+#include "embed/extmod/trezorobj.h"
 #include "memzero.h"
 #include "storage.h"
 

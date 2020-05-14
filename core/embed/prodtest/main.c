@@ -26,6 +26,7 @@
 #include "common.h"
 #include "display.h"
 #include "flash.h"
+#include "memzero.h"
 #include "mini_printf.h"
 #include "rng.h"
 #include "sbu.h"
@@ -33,8 +34,6 @@
 #include "secbool.h"
 #include "touch.h"
 #include "usb.h"
-
-#include "memzero.h"
 
 enum { VCP_IFACE = 0x00 };
 

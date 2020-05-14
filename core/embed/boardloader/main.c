@@ -23,13 +23,11 @@
 #include "display.h"
 #include "flash.h"
 #include "image.h"
+#include "lowlevel.h"
+#include "memzero.h"
 #include "rng.h"
 #include "sdcard.h"
-
-#include "lowlevel.h"
 #include "version.h"
-
-#include "memzero.h"
 
 const uint8_t BOARDLOADER_KEY_M = 2;
 const uint8_t BOARDLOADER_KEY_N = 3;

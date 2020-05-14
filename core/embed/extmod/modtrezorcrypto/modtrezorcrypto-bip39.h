@@ -17,10 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "bip39.h"
 #include "py/objstr.h"
 #include "py/runtime.h"
-
-#include "bip39.h"
 
 /// package: trezorcrypto.bip39
 

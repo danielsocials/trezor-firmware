@@ -17,11 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "common.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "common.h"
 #include "display.h"
 #include "memzero.h"
 

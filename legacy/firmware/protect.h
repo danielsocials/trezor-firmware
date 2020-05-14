@@ -21,6 +21,7 @@
 #define __PROTECT_H__
 
 #include <stdbool.h>
+
 #include "messages-common.pb.h"
 #include "secbool.h"
 

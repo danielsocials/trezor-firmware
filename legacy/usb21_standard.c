@@ -17,8 +17,10 @@
  */
 
 #include "usb21_standard.h"
+
 #include <stdint.h>
 #include <string.h>
+
 #include "common.h"
 #include "util.h"
 

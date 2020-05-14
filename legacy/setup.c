@@ -25,6 +25,7 @@
 #include <libopencm3/stm32/rng.h>
 #include <libopencm3/stm32/spi.h>
 
+#include "./segger_rtt/rtt_log.h"
 #include "buttons.h"
 #include "layout.h"
 #include "mi2c.h"
@@ -34,8 +35,6 @@
 #include "sys.h"
 #include "usart.h"
 #include "util.h"
-
-#include "./segger_rtt/rtt_log.h"
 
 uint32_t __stack_chk_guard;
 

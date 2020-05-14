@@ -1,3 +1,5 @@
+#include "si2c.h"
+
 #include <errno.h>
 #include <libopencm3/cm3/nvic.h>
 #include <libopencm3/stm32/gpio.h>
@@ -9,7 +11,6 @@
 #include "buttons.h"
 #include "common.h"
 #include "layout.h"
-#include "si2c.h"
 #include "sys.h"
 #include "timer.h"
 #include "usart.h"

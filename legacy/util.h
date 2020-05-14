@@ -27,6 +27,7 @@
 #if !EMULATOR
 #include <libopencm3/cm3/scb.h>
 #include <libopencm3/cm3/vector.h>
+
 #include "timer.h"
 #endif
 

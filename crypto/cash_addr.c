@@ -19,11 +19,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+#include "cash_addr.h"
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "cash_addr.h"
 
 #define MAX_CASHADDR_SIZE 129
 #define MAX_BASE32_SIZE 104

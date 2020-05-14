@@ -23,6 +23,7 @@
  */
 
 #include "rfc6979.h"
+
 #include "hmac_drbg.h"
 #include "memzero.h"
 

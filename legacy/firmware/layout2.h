@@ -25,11 +25,10 @@
 #include "chinese.h"
 #include "coins.h"
 #include "layout.h"
-#include "trezor.h"
-
 #include "messages-bitcoin.pb.h"
 #include "messages-crypto.pb.h"
 #include "messages-nem.pb.h"
+#include "trezor.h"
 
 #define DISP_BUFSIZE (2048)
 #define DISP_PAGESIZE (96)

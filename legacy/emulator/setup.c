@@ -17,19 +17,19 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "setup.h"
+
 #include <errno.h>
 #include <fcntl.h>
+#include <libopencm3/stm32/flash.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
-#include <libopencm3/stm32/flash.h>
-
 #include "memory.h"
 #include "oled.h"
 #include "rng.h"
-#include "setup.h"
 #include "timer.h"
 
 #define EMULATOR_FLASH_FILE "emulator.img"

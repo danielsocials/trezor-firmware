@@ -17,14 +17,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "image.h"
+
 #include <string.h>
 
 #include "blake2s.h"
-#include "ed25519-donna/ed25519.h"
-
 #include "common.h"
+#include "ed25519-donna/ed25519.h"
 #include "flash.h"
-#include "image.h"
 
 static secbool compute_pubkey(uint8_t sig_m, uint8_t sig_n,
                               const uint8_t *const *pub, uint8_t sigmask,

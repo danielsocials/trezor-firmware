@@ -17,10 +17,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "py/objstr.h"
-
 #include "aes/aes.h"
 #include "memzero.h"
+#include "py/objstr.h"
 
 enum AESMode {
   ECB = 0x00,

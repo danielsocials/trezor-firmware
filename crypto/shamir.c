@@ -37,7 +37,9 @@
  */
 
 #include "shamir.h"
+
 #include <string.h>
+
 #include "memzero.h"
 
 static void bitslice(uint32_t r[8], const uint8_t *x, size_t len) {

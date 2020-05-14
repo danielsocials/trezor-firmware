@@ -20,6 +20,7 @@
 #include STM32_HAL_H
 
 #include "usb.h"
+
 #include "common.h"
 #include "rdi.h"
 #include "usbd_core.h"
