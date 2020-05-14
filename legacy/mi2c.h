@@ -41,6 +41,7 @@
 #define GET_SESTORE_DATA (0x00)
 #define SET_SESTORE_DATA (0x01)
 #define DELETE_SESTORE_DATA (0x02)
+#define DEVICEINIT_DATA (0x03)
 
 #define MI2C_CMD_WR_PIN (0xE1)
 #define MI2C_CMD_AES (0xE2)
