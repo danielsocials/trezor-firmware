@@ -173,11 +173,9 @@ bool se_device_init(uint8_t mode, const char *passphrase) {
   cmd[1] = passphraselen & 0xFF;
   cmd[2] = (passphraselen >> 8) & 0xFF;
   memcpy(cmd + 3, passphrase, passphraselen);
-  if(MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, 0x12, cmd,
-                   passphraselen + 3,NULL, NULL, MI2C_ENCRYPT,
-                   DEVICEINIT_DATA)){
-        return false;
-                
+  if (MI2C_OK != MI2CDRV_Transmit(MI2C_CMD_WR_PIN, 0x12, cmd, passphraselen + 3,
+                                  NULL, NULL, MI2C_ENCRYPT, DEVICEINIT_DATA)) {
+    return false;
   }
   return true;
 }
