@@ -111,10 +111,12 @@ void reset_init(bool display_random, uint32_t _strength,
       }
     }
   }
-
   if (pin_protection && !protectChangePin(true, false)) {
     layoutHome();
     return;
+  }
+  if (config_getDeviceState() != DeviceState_ResetSetPin) {
+    config_setDeviceState(DeviceState_ResetSetPin);
   }
 
   config_setPassphraseProtection(passphrase_protection);
@@ -176,6 +178,7 @@ void reset_entropy(const uint8_t *ext_entropy, uint32_t len) {
         layoutHome();
         return;
       }
+
     }
     fsm_sendSuccess(_("Device successfully initialized"));
     layoutHome();
