@@ -301,7 +301,6 @@ void vMI2CDRV_SynSessionKey(void) {
                                     (uint8_t *)&ucSessionMode, 1, NULL, 0, 0x00,
                                     SET_SESTORE_DATA)) {
       random_buffer_ST(ucRandom, sizeof(ucRandom));
-      memset(ucRandom,1,16);
       memcpy(g_ucSessionKey, (uint8_t *)ucDefaultSessionKey,
              sizeof(ucDefaultSessionKey));
       if (MI2C_OK == MI2CDRV_Transmit(MI2C_CMD_WR_PIN, SESSION_ADDR_INDEX,
