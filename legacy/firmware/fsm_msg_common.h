@@ -665,7 +665,7 @@ void fsm_msgBixinSeedOperate(const BixinSeedOperate *msg) {
       uiTemp = random32();
       memcpy(ucBuf + 1 + i * 4, &uiTemp, 4);
     }
-    ucBuf[0] = config_setSeedsExportFlag(ExportType_SeedEncExportType_NO);
+    ucBuf[0] = config_setSeedsExportFlag(ExportType_SeedEncExportType_YES);
     if (!config_setSeedsBytes(ucBuf, 65)) {
       fsm_sendFailure(FailureType_Failure_NotInitialized, NULL);
       layoutHome();
@@ -729,6 +729,7 @@ void fsm_msgBixinMessageSE(const BixinMessageSE *msg) {
 }
 
 void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
+  CHECK_PIN
   (void)msg;
   RESP_INIT(BixinBackupAck);
   if (false == se_backup((uint8_t *)resp->data.bytes, &resp->data.size)) {
@@ -736,21 +737,19 @@ void fsm_msgBixinBackupRequest(const BixinBackupRequest *msg) {
     layoutHome();
     return;
   }
-  // resp->has_data = true;
   msg_write(MessageType_MessageType_BixinBackupAck, resp);
   layoutHome();
   return;
 };
 
 void fsm_msgBixinRestoreRequest(const BixinRestoreRequest *msg) {
-  // RESP_INIT(BixinRestoreAck);
+  CHECK_PIN
+  CHECK_NOT_INITIALIZED
   if (false == se_restore((uint8_t *)msg->data.bytes, msg->data.size)) {
     fsm_sendFailure(FailureType_Failure_UnexpectedMessage, NULL);
     layoutHome();
     return;
   }
-  // resp->has_outmessage = true;
-  // msg_write(MessageType_MessageType_BixinRestoreAck, resp);
   fsm_sendSuccess(_("device initialied success"));
   layoutHome();
   return;
@@ -765,7 +764,6 @@ void fsm_msgBixinVerifyDeviceRequest(const BixinVerifyDeviceRequest *msg) {
     layoutHome();
     return;
   }
-  // resp->has_outmessage = true;
   msg_write(MessageType_MessageType_BixinVerifyDeviceAck, resp);
   layoutHome();
   return;

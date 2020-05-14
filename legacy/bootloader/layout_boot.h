@@ -5,6 +5,7 @@
 #include "bootloader.h"
 #include "layout.h"
 #include "oled.h"
+#include "timer.h"
 
 void layoutBootHome(void);
 
